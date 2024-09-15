@@ -4,8 +4,26 @@ public class Character: IChar
     private string name;
     private double health;
     private double maxHealth;
+    private double damage;
     private List<Item> items;
-    private 
+    public CharacterType characterType { get; protected set; }
+    
+    public enum CharacterType
+    {
+        Elf,
+        Dwarf,
+        Wizard
+    }
+
+        public Character(string name, double maxHealth, double damage, List<Item> items, Character.CharacterType characterType)
+    {
+        this.name = name;
+        this.health = maxHealth;
+        this.maxHealth = maxHealth;
+        this.damage = damage;
+        this.items = items;
+        this.characterType = characterType;
+    }
     
     public double Health
     {
