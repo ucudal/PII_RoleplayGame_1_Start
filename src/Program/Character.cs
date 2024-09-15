@@ -4,7 +4,7 @@ public class Character: IChar
     private string name;
     private double health;
     private double maxHealth;
-    private double damage;
+    protected double damage;
     private List<Item> items;
     public CharacterType characterType { get; protected set; }
     
@@ -64,7 +64,7 @@ public class Character: IChar
     }
 
     // Obtener el valor total de ataque
-    public double GetTotalAttackValue()
+    public virtual double GetTotalAttackValue()
     {
         double attackValue = 0;
         foreach (var item in items)

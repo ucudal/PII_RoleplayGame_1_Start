@@ -14,7 +14,14 @@ public class Wizard: Character
     public double Mana
     {
         get { return mana; }
-        set { mana = value; }
+        set { if (value > maxMana)
+            {
+                mana = maxMana;
+            }
+            else
+            {
+                mana = value;
+            }; }
     }
     
     // Agregar hechizo al libro de hechizos
