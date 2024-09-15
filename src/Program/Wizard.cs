@@ -26,17 +26,12 @@ public class Wizard: Character
     
     public double GetMana() => mana;
     
-    public void LanzarHechizo(Hechizo hechizo, Character objetivo)
+    public void CastSpell(Spell spell, Character objetivo)
     {
-        if (Mana >= hechizo.GetManaCost())
+        if (Mana >= spell.GetManaCost())
         {
-            Mana -= hechizo.GetManaCost();
-            hechizo.Lanzar( Character objetivo);
-            Console.WriteLine($"{name} ha lanzado {hechizo.GetName()} contra {Character.GetName}, consumiendo {hechizo.GetManaCost()} de mana.");
-        }
-        else
-        {
-            Console.WriteLine($"{name} no tiene suficiente mana para lanzar {hechizo.GetName()}.");
+            Mana -= spell.GetManaCost();
+            spell.Cast(objetivo);
         }
     }
     

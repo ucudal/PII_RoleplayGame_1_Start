@@ -12,6 +12,18 @@
         this.damage = power;
         this.manaCost = manaCost;
     }
+    
+    public void Cast(Character objetivo)
+    {
+        // El hechizo ataca y reduce la vida del objetivo
+        objetivo.Health -= damage;
+
+        // Asegurar que la vida no sea negativa
+        if (objetivo.GetHealth() < 0)
+        {
+            objetivo.Health = 0;
+        }
+    }
 
     // Obtener el nombre del hechizo
     public string GetName()
