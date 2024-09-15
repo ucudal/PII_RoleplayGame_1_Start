@@ -1,4 +1,5 @@
-﻿public class Item
+
+public class Item
 {
     private string name;
     public double damage;

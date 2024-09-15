@@ -6,6 +6,9 @@ public interface IChar
     // Obtener la vida actual del personaje
     double GetHealth();
     
+    // Obtener la vida máxima del personaje
+    double GetMaxHealth();
+    
     // Añadir un ítem al personaje
     void AddItem(Item item);
 
