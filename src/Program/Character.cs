@@ -1,4 +1,3 @@
-
 public class Character: IChar
 {
     private string name;
@@ -8,6 +7,7 @@ public class Character: IChar
     private List<Item> items;
     public CharacterType characterType { get; protected set; }
     
+    // Enumerado con los tipos de personajes
     public enum CharacterType
     {
         Elf,
@@ -15,7 +15,7 @@ public class Character: IChar
         Wizard
     }
 
-        public Character(string name, double maxHealth, double damage, List<Item> items, Character.CharacterType characterType)
+    public Character(string name, double maxHealth, double damage, List<Item> items, Character.CharacterType characterType)
     {
         this.name = name;
         this.health = maxHealth;
@@ -29,6 +29,7 @@ public class Character: IChar
     {
         get { return health; }
         set {
+            // Si el valor que le quieren asignar a la vida es mayor a su cantidad de vida máxima entonces asignamos la vida al máximo
             if (value > maxHealth)
             {
                 health = maxHealth;
@@ -40,6 +41,7 @@ public class Character: IChar
         }
     }
     
+    // Obtener la vida maxima que puede tener el personaje
     public double GetMaxHealth()
     {
         return maxHealth;
@@ -101,8 +103,14 @@ public class Character: IChar
     }
 
     // Método para curar al personaje
-    public void Heal()
+    public virtual void Heal()
     {
         Health += maxHealth / 3; // Vida inicial / 3
+    }
+    
+    // Metodo para atacar a otro personaje
+    public void Attack(Character enemy)
+    {
+        enemy.ReceiveDamage(this.damage);
     }
 }

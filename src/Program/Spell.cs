@@ -1,11 +1,8 @@
 ﻿public class Spell
 {
-    // Atributos del Hechizo
-    private string name;      // Nombre del hechizo
-    private int damage;        // Poder del hechizo (impacto en el ataque)
+    private string name;      
+    private int damage;       
     private int manaCost;     // Costo de mana para lanzar el hechizo
-
-    // Constructor
     public Spell(string name, int power, int manaCost)
     {
         this.name = name;
@@ -13,7 +10,8 @@
         this.manaCost = manaCost;
     }
     
-    public void Cast(Character objetivo)
+    // Recitar hechizo
+    public void Recite(Character objetivo)
     {
         // El hechizo ataca y reduce la vida del objetivo
         objetivo.Health -= damage;
@@ -31,7 +29,7 @@
         return name;
     }
     
-    // Obtener el poder del hechizo
+    // Obtener el daño del hechizo
     public int GetDamage()
     {
         return damage;
@@ -41,11 +39,5 @@
     public int GetManaCost()
     {
         return manaCost;
-    }
-
-    // Método para mostrar la información del hechizo
-    public override string ToString()
-    {
-        return $"Hechizo: {name}, Poder: {damage}, Costo de mana: {manaCost}";
     }
 }
