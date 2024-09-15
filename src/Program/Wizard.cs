@@ -1,4 +1,3 @@
-
 public class Wizard: Character
 {
     private double mana;
@@ -23,27 +22,31 @@ public class Wizard: Character
                 mana = value;
             }; }
     }
-    
+
+    // Sobreescribimos heal cuando el personaje es de tipo Wizard, al curarse tambien se le suma 50% de su capacidad de mana
+    public override void Heal()
+    {
+        base.Heal();
+        mana += maxMana / 2;
+    }
+
     // Agregar hechizo al libro de hechizos
-    public List<Spell> learnMagic(Spell hechizo)
+    public List<Spell> LearnMagic(Spell hechizo)
     {
         listaLibroDeHechizos.Add(hechizo);
         return listaLibroDeHechizos;
     }
     
+    // Consultar cuanta mana tiene actualmente
     public double GetMana() => mana;
     
+    // Lanzar un hechizo
     public void CastSpell(Spell spell, Character objetivo)
     {
         if (Mana >= spell.GetManaCost())
         {
             Mana -= spell.GetManaCost();
-            spell.Cast(objetivo);
+            spell.Recite(objetivo);
         }
-    }
-    
-    public void RestoreMana()
-    {
-        Mana += this.maxMana / 3; // Recupera 1/3 de su mana máximo
     }
 }

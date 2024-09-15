@@ -26,4 +26,7 @@ public interface IChar
 
     // Método para curar al personaje
     void Heal();
+
+    // Método para atacar otro personaje
+    void Attack(Character enemy);
 }

@@ -1,31 +1,15 @@
-
-
-public class Elf
-
+public class Elf : Character
 {
-    private string name;
-    private double health;
-    private double maxHealth;
-    private List<Item> items;
-
-    public Elf(string name, double health, double strength)
+    public Elf(string name, double maxHealth, double damage, List<Item> items) 
+        : base(name, maxHealth, damage, items, Character.CharacterType.Elf)  // Llamada al constructor de Character
+    {}
+    
+    // Habilidad unica del Elfo, puede ayudar a los demas curandolos y si sos 
+    public void HelpOther(Character companion)
     {
-        this.name = name;
-        this.health = health;
-        this.maxHealth = health;
-        this.items = new List<Item>();
-        
-    }
-
-    public void HelpOther(IChar compañero)
-    {
-        if (compañero.GetHealth() < compañero.GetMaxHealth())
-        {
-            /*switch ()
-            {
-                
-            }*/
+        if (companion.GetHealth() < companion.GetMaxHealth())
+        { 
+            companion.Heal();
         }
-
     }
 }
