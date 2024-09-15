@@ -1,16 +1,14 @@
-﻿namespace Program;
-
-public class items
+﻿public class Item
 {
     private string name;
     public double damage;
-    public double healing;
+    public double defense;
 
-    public items(string name, double damage, double healing)
+    public Item(string name, double damage, double healing)
     {
         this.name = name;
         this.damage = damage;
-        this.healing = healing;
+        this.defense = healing;
     }
 
     public double GetDamage()
@@ -25,6 +23,6 @@ public class items
 
     public void NewHealing (double newHealing)
     {
-        this.healing = newHealing;
+        this.defense = newHealing;
     }
 }

@@ -1,37 +1,25 @@
-﻿using System.Collections;
-public class Wizard
+
+public class Elf: IChar
 {
     private string name;
-    private double damage;
     private double health;
     private double maxHealth;
-    private double mana;
-    private double maxMana;
-    private List<Hechizo> listaLibroDeHechizos;
     private List<Item> items;
-    
+
+    public Elf(string name, double health, double strength)
+    {
+        this.name = name;
+        this.health = health;
+        this.maxHealth = health;
+        this.items = new List<Item>();
+        
+    }
+
     public double Health
     {
         get { return health; }
         set { health = value; }
     }
-
-    public Wizard(string name, bool magic, List<Item> listaDeItems, List<Hechizo> listaDeHechizos)
-    {
-        this.name = name;
-        this.damage = damage;
-        this.items = listaDeItems;
-        this.listaLibroDeHechizos = listaDeHechizos;
-    }
-    
-    // Agregar hechizo al libro de hechizos
-    public List<Hechizo> learnMagic(Hechizo hechizo)
-    {
-        listaLibroDeHechizos.Add(hechizo);
-        return listaLibroDeHechizos;
-    }
-    
-    //---------Interfaz--------------------------------//
     
     // Obtener el nombre del personaje
     public string GetName() => name;
