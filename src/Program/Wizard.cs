@@ -16,6 +16,11 @@ public class Wizard
         set { health = value; }
     }
 
+    public double Mana
+    {
+        get { return mana; }
+        set { mana = value; }
+    }
     public Wizard(string name, bool magic, List<Item> listaDeItems, List<Hechizo> listaDeHechizos)
     {
         this.name = name;
@@ -29,6 +34,22 @@ public class Wizard
     {
         listaLibroDeHechizos.Add(hechizo);
         return listaLibroDeHechizos;
+    }
+
+    public double GetMana() => mana;
+    
+    public void LanzarHechizo(Hechizo hechizo, Character objetivo)
+    {
+        if (Mana >= hechizo.GetManaCost())
+        {
+            Mana -= hechizo.GetManaCost();
+            hechizo.Lanzar( Character objetivo);
+            Console.WriteLine($"{name} ha lanzado {hechizo.GetName()} contra {Character.GetName}, consumiendo {hechizo.GetManaCost()} de mana.");
+        }
+        else
+        {
+            Console.WriteLine($"{name} no tiene suficiente mana para lanzar {hechizo.GetName()}.");
+        }
     }
     
     //---------Interfaz--------------------------------//
@@ -92,5 +113,10 @@ public class Wizard
     public void Heal()
     {
         Health = this.maxHealth; // Vida inicial
+    }
+    
+    public void RestoreMana()
+    {
+        Mana += this.maxMana / 3; // Recupera 1/3 de su mana máximo
     }
 }
