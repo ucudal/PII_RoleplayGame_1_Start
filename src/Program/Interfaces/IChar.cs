@@ -1,3 +1,6 @@
+/*La interfaz IChar define el comportamiento básico que todos los personajes deben implementar.
+ Incluye métodos esenciales como atacar, defender, curar, y verificar si un personaje está vivo, 
+ proporcionando una estructura común para todos los tipos de personajes.*/
 public interface IChar
 {
     // Obtener el nombre del personaje

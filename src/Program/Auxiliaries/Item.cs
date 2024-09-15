@@ -1,3 +1,6 @@
+/*La clase Item representa objetos que los personajes pueden equipar, como armas o armaduras,
+ y que influyen en sus atributos de ataque y defensa. Los items son clave para mejorar las 
+ habilidades en combate y se pueden equipar, cambiar o quitar.*/
 public class Item
 {
     private string name;

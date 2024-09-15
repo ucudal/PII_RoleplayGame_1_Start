@@ -1,4 +1,6 @@
-﻿public class Spell
+﻿/*La clase Spell representa un hechizo que puede ser lanzado por personajes mágicos como wizard.
+ Cada hechizo tiene un costo de maná y un poder, afectando a los enemigos o ayudando a aliados en el combate.*/
+public class Spell
 {
     private string name;      
     private int damage;       

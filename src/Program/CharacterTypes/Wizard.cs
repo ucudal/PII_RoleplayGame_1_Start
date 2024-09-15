@@ -1,3 +1,6 @@
+/*Los magos tienen acceso a hechizos y maná, lo que introduce una mecánica de recursos que otros personajes no poseen.
+La clase Wizard necesita manejar la gestión de su mana y el uso de hechizos, lo que implica métodos como 
+CastSpell() y RestoreMana(). Este comportamiento no es relevante para un elfo o un enano, y por lo tanto debe ser exclusivo de los magos.*/
 public class Wizard: Character
 {
     private double mana;

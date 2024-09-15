@@ -1,3 +1,7 @@
+
+/*La clase base Character define atributos y comportamientos comunes
+(como el nombre, la vida y los items), pero los personajes individuales 
+implementan comportamientos más específicos según su naturaleza.*/
 public class Character: IChar
 {
     private string name;

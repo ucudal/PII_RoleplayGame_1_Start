@@ -1,3 +1,6 @@
+/*Los elfos destacan por su capacidad de ayudar a los demás.
+Contienen habilidades especiales como HelpOther() que hacen a los elfos únicos. 
+Estos comportamientos no aplicarían a los magos o enanos.*/
 public class Elf : Character
 {
     public Elf(string name, double maxHealth, double damage, List<Item> items) 
