@@ -43,6 +43,10 @@ public class Wizard: Character
     // Consultar cuanta mana tiene actualmente
     public double GetMana() => mana;
     
+    // Consultar por el su mañan máxima
+
+    public double GetMaxMana() => maxMana;
+    
     // Lanzar un hechizo
     public void CastSpell(Spell spell, Character objetivo)
     {
