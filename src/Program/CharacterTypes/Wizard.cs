@@ -9,7 +9,8 @@ public class Wizard: Character
     public Wizard(string name, double maxHealth, double damage, List<Item> items, double mana, List<Spell> listaDeHechizos) 
         : base(name, maxHealth, damage, items, Character.CharacterType.Wizard)  // Llamada al constructor de Character
     {
-        this.mana = mana;  // Asignar el mana solo para los magos
+        this.maxMana = mana; 
+        this.mana = maxMana;  // Asignar el mana al valor máximo al principio
         this.listaLibroDeHechizos = listaDeHechizos;
     }
 
@@ -37,18 +38,26 @@ public class Wizard: Character
     public List<Spell> LearnMagic(Spell hechizo)
     {
         listaLibroDeHechizos.Add(hechizo);
+        foreach (var spell in listaLibroDeHechizos )
+        {
+            Console.WriteLine(spell.GetName()); 
+        }
         return listaLibroDeHechizos;
     }
     
     // Consultar cuanta mana tiene actualmente
     public double GetMana() => mana;
     
+    // Consultar por el su mana máxima
+
+    public double GetMaxMana() => maxMana;
+    
     // Lanzar un hechizo
     public void CastSpell(Spell spell, Character objetivo)
     {
-        if (Mana >= spell.GetManaCost())
+        if (mana >= spell.GetManaCost())
         {
-            Mana -= spell.GetManaCost();
+            mana -= spell.GetManaCost();
             spell.Recite(objetivo);
         }
     }
