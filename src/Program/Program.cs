@@ -32,10 +32,21 @@ public class Program
         dwarf.GoCrazy();
         Console.WriteLine($"Dwarf Damage after GoCrazy: {dwarf.GetTotalAttackValue()}");
         
+        // Objetos y personaje de Ramiro Lopez
+        
+        // Agrego dos items
         Item espadaDeFuego = new Item("Espada de Fuego", 50, 0);
         Item cascoMagico = new Item("Casco Mágico", 0, 30);
+        Item escudoDeMadera = new Item("Escudo de madera", 0, 1.0);
+        
+        // Creo una lista con los items
         List<Item> dondarItems = new List<Item> { espadaDeFuego, cascoMagico };
+        
+        // Creo un enano Dondar
         Dwarf dondarRami = new Dwarf("Dondar", 100, 40, dondarItems);
-        Console.WriteLine(dondarRami.GetTotalAttackValue());
+        
+        // Agrego un item
+        dondarRami.AddItem(escudoDeMadera);
+        Console.WriteLine(dondarItems);
     }
 }
