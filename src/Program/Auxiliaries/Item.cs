@@ -19,11 +19,7 @@ public class Item
     {
         return name;
     }
-
-    public string GetName()
-    {
-        return name;
-    }
+    
     // Consultar el daño que hace el Item
     public double GetDamage()
     {

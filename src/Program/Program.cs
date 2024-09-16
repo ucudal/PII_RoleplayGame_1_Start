@@ -5,6 +5,7 @@ public class Program
 {
     public static void Main()
     {
+        //----------------------------Martin------------------------------------------------
         // Crear dos ítems
         Item battleAxe = new Item("Battle Axe", 25.0, 0.0); // Hacha de batalla con daño de 25 y defensa de 0
         Item heavyArmor = new Item("Heavy Armor", 0.0, 20.0); // Armadura pesada con daño de 0 y defensa de 20
@@ -32,7 +33,7 @@ public class Program
         dwarf.GoCrazy();
         Console.WriteLine($"Dwarf Damage after GoCrazy: {dwarf.GetTotalAttackValue()}");
         
-        // Objetos y personaje de Ramiro Lopez
+        //----------------------------Ramiro------------------------------------------------
         
         // Agrego dos items
         Item espadaDeFuego = new Item("Espada de Fuego", 50, 0);
@@ -49,24 +50,25 @@ public class Program
         dondarRami.AddItem(escudoDeMadera);
         Console.WriteLine(dondarItems);
       
-      
+        //----------------------------Mateo------------------------------------------------
+        
       Item sopa = new Item("Sopa", 20, 5);  
         Item baston = new Item("BastonDeGandalf", 5, 10);   
         
         // Crear una lista de Items
-        List<Item> items = new List<Item> { sopa, baston };
+        List<Item> items2 = new List<Item> { sopa, baston };
 
         // Crear un hechizo
         Spell oneforall = new Spell("OneForAll", 100, 80); // nombre, daño, coste de maná
 
         // Crear una lista de hechizos
         List<Spell> spellBook = new List<Spell> { oneforall };
-        Wizard merlin = new Wizard("Merlin", 150, 15, items, 100, spellBook);
+        Wizard merlin = new Wizard("Merlin", 150, 15, items2, 100, spellBook);
         
         // Imprimir detalles del Wizard
         Console.WriteLine($"{merlin.GetName()} tiene {merlin.GetHealth()} de vida y {merlin.GetMana()} de maná.");
         Console.WriteLine("Items:");
-        foreach (var item in items)
+        foreach (var item in items2)
         {
             Console.WriteLine($"- {item.GetName()}: Ataque = {item.damage}, Defensa = {item.defense}");
         }
@@ -77,5 +79,11 @@ public class Program
 
         // Imprimir el estado del enemigo
         Console.WriteLine($"{enemy.GetName()} ahora tiene {enemy.GetHealth()} de vida.");
+        
+        //----------------------------Lucia------------------------------------------------
+        Item hacha = new Item("hacha", 100.0, 0.0);
+        Item tunica = new Item("tunica", 50.0, 90.0);
+        List<Item> luliItems = new List<Item> { hacha, tunica };
+        Character luliElf = new Character("luil", 100.0, 50.0, luliItems, Character.CharacterType.Elf);
     }
 }
