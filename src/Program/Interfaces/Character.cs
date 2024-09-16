@@ -72,13 +72,13 @@ public class Character: IChar
     // Obtener el valor total de ataque
     public virtual double GetTotalAttackValue()
     {
-        double attackValue = 0;
+        double attackValue = damage;
         foreach (var item in items)
         {
             attackValue += item.damage;
         }
         
-        return attackValue; // La fuerza suma al valor de ataque
+        return damage + attackValue; // La fuerza suma al valor de ataque
     }
 
     // Obtener el valor total de defensa
