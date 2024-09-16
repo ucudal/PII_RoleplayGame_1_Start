@@ -1,5 +1,3 @@
-﻿namespace  Tests;
-
 using NUnit.Framework;
 using System.Collections.Generic;
 
@@ -26,7 +24,7 @@ public class CharacterTests
         // Arrange
         var items = new List<Item>();
         var character = new Character("Gimli", 100, 10, items, Character.CharacterType.Dwarf);
-        var sword = new Item { name = "Sword", damage = 20, defense = 5 };
+        var sword = new Item("Sword", 20, 5);
 
         // Act
         character.AddItem(sword);
@@ -41,7 +39,7 @@ public class CharacterTests
         // Arrange
         var items = new List<Item>();
         var character = new Character("Legolas", 100, 10, items, Character.CharacterType.Elf);
-        var bow = new Item { name = "Bow", damage = 15, defense = 3 };
+        var bow = new Item("Bow",15,3 );
 
         // Act
         character.AddItem(bow);
