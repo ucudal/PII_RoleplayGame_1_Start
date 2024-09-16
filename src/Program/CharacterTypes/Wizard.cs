@@ -49,7 +49,6 @@ public class Wizard: Character
     public double GetMana() => mana;
     
     // Consultar por el su mana máxima
-
     public double GetMaxMana() => maxMana;
     
     // Lanzar un hechizo

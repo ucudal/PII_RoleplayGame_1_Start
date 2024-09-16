@@ -78,7 +78,7 @@ public class Character: IChar
             attackValue += item.damage;
         }
         
-        return attackValue; // La fuerza suma al valor de ataque
+        return damage + attackValue; // La fuerza suma al valor de ataque
     }
 
     // Obtener el valor total de defensa
