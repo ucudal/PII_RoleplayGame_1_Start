@@ -9,4 +9,5 @@ public interface Iitem
     double GetDamage();
     // Consultar la defensa que tiene el Item
     double GetDefense();
+    bool GetMagic();
 }

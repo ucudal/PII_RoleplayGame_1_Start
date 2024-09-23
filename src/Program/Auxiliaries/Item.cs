@@ -7,12 +7,14 @@ public class Items
         private string name;
         private double damage;
         private double defense;
+        private bool magic;
 
-        public Item(string name, double damage, double defense)
+        public Item(string name, double damage, double defense, bool magic)
         {
             this.name = name;
             this.damage = damage;
             this.defense = defense;
+            this.magic = magic;
         }
 
         public string GetName()
@@ -28,6 +30,11 @@ public class Items
         public double GetDefense()
         {
             return defense;
+        }
+
+        public bool GetMagic()
+        {
+            return magic;
         }
     }
 }

@@ -8,8 +8,8 @@ public class Program
     {
         //----------------------------Martin------------------------------------------------
         // Crear dos ítems
-        Iitem battleAxe = new Items.Item("Battle Axe", 25.0, 0.0); // Hacha de batalla con daño de 25 y defensa de 0
-        Iitem heavyArmor = new Items.Item("Heavy Armor", 0.0, 20.0); // Armadura pesada con daño de 0 y defensa de 20
+        Iitem battleAxe = new Items.Item("Battle Axe", 25.0, 0.0, false); // Hacha de batalla con daño de 25 y defensa de 0
+        Iitem heavyArmor = new Items.Item("Heavy Armor", 0.0, 20.0, false); // Armadura pesada con daño de 0 y defensa de 20
 
         // Crear una lista de ítems y agregar los ítems
         List<Iitem> items = new List<Iitem> { battleAxe, heavyArmor };
@@ -37,9 +37,9 @@ public class Program
         //----------------------------Ramiro------------------------------------------------
         
         // Agrego dos items
-        Iitem espadaDeFuego = new Items.Item("Espada de Fuego", 50, 0);
-        Iitem cascoMagico = new Items.Item("Casco Mágico", 0, 30);
-        Iitem escudoDeMadera = new Items.Item("Escudo de madera", 0, 1.0);
+        Iitem espadaDeFuego = new Items.Item("Espada de Fuego", 50, 0, false);
+        Iitem cascoMagico = new Items.Item("Casco Mágico", 0, 30, false);
+        Iitem escudoDeMadera = new Items.Item("Escudo de madera", 0, 1.0, false);
         
         // Creo una lista con los items
         List<Iitem> dondarItems = new List<Iitem> { espadaDeFuego, cascoMagico };
@@ -53,8 +53,8 @@ public class Program
       
         //----------------------------Mateo------------------------------------------------
         
-        Iitem sopa = new Items.Item("Sopa", 20, 5);  
-        Iitem baston = new Items.Item("BastonDeGandalf", 5, 10);   
+        Iitem sopa = new Items.Item("Sopa", 20, 5, false);  
+        Iitem baston = new Items.Item("BastonDeGandalf", 5, 10, false);   
 
         //crear una lista de Items
         List<Iitem> items2 = new List<Iitem> { sopa, baston };
@@ -83,8 +83,8 @@ public class Program
         Console.WriteLine($"{enemy.GetName()} ahora tiene {enemy.GetHealth()} de vida.");
         
         //----------------------------Lucia------------------------------------------------
-        Iitem hacha = new Items.Item("hacha", 100.0, 0.0);
-        Iitem tunica = new Items.Item("tunica", 50.0, 90.0);
+        Iitem hacha = new Items.Item("hacha", 100.0, 0.0, false);
+        Iitem tunica = new Items.Item("tunica", 50.0, 90.0, false);
         List<Iitem> luliItems = new List<Iitem> { hacha, tunica };
         Character luliElf = new Character("luil", 100.0, 50.0, luliItems, Character.CharacterType.Elf);
     }
