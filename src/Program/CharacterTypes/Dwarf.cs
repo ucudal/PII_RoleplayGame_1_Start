@@ -3,7 +3,7 @@
   lo que los distingue de los elfos y magos, cuyas fortalezas están en otras áreas.*/
 public class Dwarf : Character
 {
-    public Dwarf(string name, double maxHealth, double baseDamage, List<Item> items)
+    public Dwarf(string name, double maxHealth, double baseDamage, List<Iitem> items)
         : base(name, maxHealth, baseDamage, items, CharacterType.Dwarf)
     { }
     

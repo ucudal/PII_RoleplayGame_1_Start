@@ -2,16 +2,19 @@
 /*La clase base Character define atributos y comportamientos comunes
 (como el nombre, la vida y los items), pero los personajes individuales 
 implementan comportamientos más específicos según su naturaleza.*/
+
+using Program2;
+
 public class Character: IChar
 {
     private string name;
     private double health;
     private double maxHealth;
     protected double damage;
-    private List<Item> items;
+    private List<Iitem> items;
     public CharacterType characterType { get; protected set; }
     
-    // Enumerado con los tipos de personajes
+    //enumerado con los tipos de personajes
     public enum CharacterType
     {
         Elf,
@@ -19,7 +22,7 @@ public class Character: IChar
         Wizard
     }
 
-    public Character(string name, double maxHealth, double damage, List<Item> items, Character.CharacterType characterType)
+    public Character(string name, double maxHealth, double damage, List<Iitem> items, Character.CharacterType characterType)
     {
         this.name = name;
         this.health = maxHealth;
@@ -33,7 +36,7 @@ public class Character: IChar
     {
         get { return health; }
         set {
-            // Si el valor que le quieren asignar a la vida es mayor a su cantidad de vida máxima entonces asignamos la vida al máximo
+            //si el valor que le quieren asignar a la vida es mayor a su cantidad de vida máxima entonces asignamos la vida al máximo
             if (value > maxHealth)
             {
                 health = maxHealth;
@@ -56,41 +59,38 @@ public class Character: IChar
     
     // Obtener la vida actual del personaje
     public double GetHealth() => health;
-    
-    // Añadir un ítem al personaje
-    public void AddItem(Item item)
+
+    public void AddItem(Iitem item)
     {
         items.Add(item);
     }
-
-    // Eliminar un ítem del personaje
-    public void RemoveItem(Item item)
+    
+    public void RemoveItem(Iitem item)
     {
         items.Remove(item);
     }
 
-    // Obtener el valor total de ataque
-    public virtual double GetTotalAttackValue()
+
+    //opbtenemos el valor total de ataque
+    public double GetTotalAttackValue()
     {
         double attackValue = damage;
         foreach (var item in items)
         {
-            attackValue += item.damage;
+            attackValue += item.GetDamage();
         }
-        
-        return damage + attackValue; // La fuerza suma al valor de ataque
+        return attackValue;
     }
 
-    // Obtener el valor total de defensa
+//obtener el valor total de defensa
     public double GetTotalDefenseValue()
     {
         double defenseValue = 0;
         foreach (var item in items)
         {
-            defenseValue += item.defense;
+            defenseValue += item.GetDefense(); 
         }
-        
-        return defenseValue; // La fuerza suma al valor de ataque
+        return defenseValue;
     }
 
     // Método para recibir daño

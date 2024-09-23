@@ -13,10 +13,10 @@ public interface IChar
     double GetMaxHealth();
     
     // Añadir un ítem al personaje
-    void AddItem(Item item);
+    void AddItem(Iitem item);
 
     // Eliminar un ítem del personaje
-    void RemoveItem(Item item);
+    void RemoveItem(Iitem item);
 
     // Obtener el valor total de ataque
     double GetTotalAttackValue();

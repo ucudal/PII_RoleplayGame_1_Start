@@ -6,7 +6,7 @@ public class Wizard: Character
     private double mana;
     private double maxMana;
     private List<Spell> listaLibroDeHechizos;
-    public Wizard(string name, double maxHealth, double damage, List<Item> items, double mana, List<Spell> listaDeHechizos) 
+    public Wizard(string name, double maxHealth, double damage, List<Iitem> items, double mana, List<Spell> listaDeHechizos) 
         : base(name, maxHealth, damage, items, Character.CharacterType.Wizard)  // Llamada al constructor de Character
     {
         this.maxMana = mana; 
