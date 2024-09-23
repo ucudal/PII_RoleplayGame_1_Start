@@ -117,4 +117,12 @@ public class Character: IChar
     {
         enemy.ReceiveDamage(this.damage);
     }
+
+    public void ItemMagical(Character character, bool magic) //para ver si el personaje es mago y asi puede usar el elemento magico
+    {
+        if (character != Wizard)
+        {
+            
+        }
+    }
 }

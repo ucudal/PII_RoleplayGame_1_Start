@@ -5,6 +5,8 @@ public interface IChar
 {
     // Obtener el nombre del personaje
     string GetName();
+
+    string GetType(); //nos da el tipo de personaje, onda mago enano etc..
     
     // Obtener la vida actual del personaje
     double GetHealth();
@@ -32,4 +34,7 @@ public interface IChar
 
     // Método para atacar otro personaje
     void Attack(Character enemy);
+
+    void ItemMagical(Character character, bool magic); //para ver si el personaje es mago y asi puede usar el elemento magico
+    
 }
