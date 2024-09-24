@@ -5,11 +5,11 @@ public class Items
     public class Item : Iitem
     {
         private string name;
-        private double damage;
-        private double defense;
+        private double? damage;
+        private double? defense;
         private bool magic;
 
-        public Item(string name, double damage, double defense, bool magic)
+        public Item(string name, double? damage, double? defense, bool magic)
         {
             this.name = name;
             this.damage = damage;
@@ -24,12 +24,13 @@ public class Items
 
         public double GetDamage()
         {
-            return damage;
+            return damage ?? 0;
         }
+
 
         public double GetDefense()
         {
-            return defense;
+            return defense ?? 0;
         }
 
         public bool GetMagic()
@@ -37,4 +38,5 @@ public class Items
             return magic;
         }
     }
+    
 }

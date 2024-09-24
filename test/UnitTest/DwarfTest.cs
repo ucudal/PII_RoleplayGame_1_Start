@@ -1,3 +1,5 @@
+using Program2;
+
 namespace UnitTest
 {
     using NUnit.Framework;
@@ -16,7 +18,7 @@ namespace UnitTest
             public void Setup()
             {
                 // Agrego algunos datos para las pruebas
-                items = new List<Item>();
+                items = new List<Items>();
                 dwarf = new Dwarf("Thorin", 100, 20, items);
             }
             

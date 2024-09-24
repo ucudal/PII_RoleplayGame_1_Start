@@ -70,6 +70,11 @@ public class Character: IChar
         items.Remove(item);
     }
 
+    // Metodo para devolver el tipo de personaje
+    public new string GetType()
+    {
+        return characterType.ToString();
+    }
 
     //opbtenemos el valor total de ataque
     public double GetTotalAttackValue()
@@ -118,11 +123,35 @@ public class Character: IChar
         enemy.ReceiveDamage(this.damage);
     }
 
-    public void ItemMagical(Character character, bool magic) //para ver si el personaje es mago y asi puede usar el elemento magico
+    public void ItemMagical(Character character, Iitem item)
     {
-        if (character != Wizard)
+        // Verificar si el personaje es un mago
+        if (character.characterType == CharacterType.Wizard)
         {
-            
+            // Si el item es mágico, lo puede usar
+            if (item.GetMagic())
+            {
+                Console.WriteLine("Lo o los elementos magicos fueron agregados correctamente");
+            }
+            else
+            {
+                character.RemoveItem(item);
+                Console.WriteLine($"{character.GetName()} no puede usar elementos no mágicos.");
+            }
+        }
+        else
+        {
+            // Si el personaje no es un mago, no puede usar ítems mágicos
+            if (item.GetMagic())
+            {
+                character.RemoveItem(item);
+                Console.WriteLine($"{character.GetName()} no puede usar elementos mágicos.");
+            }
+            else
+            {
+                Console.WriteLine("Lo o los elementos magicos fueron agregados correctamente");
+            }
         }
     }
+
 }

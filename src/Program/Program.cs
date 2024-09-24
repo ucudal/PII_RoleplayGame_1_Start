@@ -8,7 +8,7 @@ public class Program
     {
         //----------------------------Martin------------------------------------------------
         // Crear dos ítems
-        Iitem battleAxe = new Items.Item("Battle Axe", 25.0, 0.0, false); // Hacha de batalla con daño de 25 y defensa de 0
+        Iitem battleAxe = new Items.Item("Battle Axe", 25.0, 0.0, true); // Hacha de batalla con daño de 25 y defensa de 0
         Iitem heavyArmor = new Items.Item("Heavy Armor", 0.0, 20.0, false); // Armadura pesada con daño de 0 y defensa de 20
 
         // Crear una lista de ítems y agregar los ítems
@@ -21,6 +21,11 @@ public class Program
         Console.WriteLine($"Dwarf Name: {dwarf.GetName()}");
         Console.WriteLine($"Dwarf Health: {dwarf.GetHealth()}");
         Console.WriteLine($"Dwarf Max Health: {dwarf.GetMaxHealth()}");
+        foreach (var elemento in items)
+        {
+            dwarf.ItemMagical(dwarf, elemento); // Realiza el control de ítems mágicos
+        }
+        
 
         // Mostrar ítems del enano
         Console.WriteLine("Items:");
@@ -38,8 +43,9 @@ public class Program
         
         // Agrego dos items
         Iitem espadaDeFuego = new Items.Item("Espada de Fuego", 50, 0, false);
-        Iitem cascoMagico = new Items.Item("Casco Mágico", 0, 30, false);
+        Iitem cascoMagico = new Items.Item("Casco Mágico", 0, 30, true);
         Iitem escudoDeMadera = new Items.Item("Escudo de madera", 0, 1.0, false);
+        Iitem lanzaDeVidrio = new Items.Item("Lanza de vidrio",null, null, true);
         
         // Creo una lista con los items
         List<Iitem> dondarItems = new List<Iitem> { espadaDeFuego, cascoMagico };
@@ -49,12 +55,21 @@ public class Program
         
         // Agrego un item
         dondarRami.AddItem(escudoDeMadera);
-        Console.WriteLine(dondarItems);
-      
+        Console.WriteLine($"El daño del item {lanzaDeVidrio.GetName()} es {lanzaDeVidrio.GetDamage()}");
+        Console.WriteLine("\nControl de ítems mágicos:");
+        foreach (var elemento in dondarItems)
+        {
+            dondarRami.ItemMagical(dondarRami, elemento); // Realiza el control de ítems mágicos
+        }
+        foreach (var item in dondarItems)
+        {
+            Console.WriteLine($"- {item.GetName()}"); // Imprime el nombre de cada ítem
+        }
+        
         //----------------------------Mateo------------------------------------------------
         
         Iitem sopa = new Items.Item("Sopa", 20, 5, false);  
-        Iitem baston = new Items.Item("BastonDeGandalf", 5, 10, false);   
+        Iitem baston = new Items.Item("BastonDeGandalf", 5, 10, true);   
 
         //crear una lista de Items
         List<Iitem> items2 = new List<Iitem> { sopa, baston };
@@ -68,6 +83,10 @@ public class Program
         
         Console.WriteLine($"{merlin.GetName()} tiene {merlin.GetHealth()} de vida y {merlin.GetMana()} de maná.");
         Console.WriteLine("Items:");
+        foreach (var elemento in items2)
+        {
+            merlin.ItemMagical(merlin, elemento); // Realiza el control de ítems mágicos
+        }
         foreach (var item in items2)
         {
             //usamos los metodos de la interfaz Iitem para obtener los valores de daño y defensa
@@ -83,8 +102,8 @@ public class Program
         Console.WriteLine($"{enemy.GetName()} ahora tiene {enemy.GetHealth()} de vida.");
         
         //----------------------------Lucia------------------------------------------------
-        Iitem hacha = new Items.Item("hacha", 100.0, 0.0, false);
-        Iitem tunica = new Items.Item("tunica", 50.0, 90.0, false);
+        Iitem hacha = new Items.Item("hacha", 100.0, 0.0, true);
+        Iitem tunica = new Items.Item("tunica", 50.0, 90.0, true);
         List<Iitem> luliItems = new List<Iitem> { hacha, tunica };
         Character luliElf = new Character("luil", 100.0, 50.0, luliItems, Character.CharacterType.Elf);
     }
