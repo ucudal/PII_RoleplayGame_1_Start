@@ -1,6 +1,7 @@
-namespace Program;
 
-public class IObjeto
+public interface IObjeto
 {
-    
+   string NombreObjeto {get;}
+   int BonusAtaque { get;  }
+   int BonusDefensa { get; }
 }
