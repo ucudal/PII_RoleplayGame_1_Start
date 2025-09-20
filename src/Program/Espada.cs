@@ -1,6 +1,9 @@
-namespace RoleplayGame;
-
-public class Espada
+namespace RoleplayGame
 {
-    
+    public class Espada : IItem
+    {
+        public string Nombre { get; } = "Espada";
+        public int Ataque { get; } = 15;
+        public int Defensa { get; } = 0;
+    }
 }
