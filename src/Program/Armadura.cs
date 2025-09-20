@@ -1,6 +1,6 @@
 namespace RoleplayGame;
 
-public class Espada
+public class Armadura
 {
     
 }
