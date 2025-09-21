@@ -1,5 +1,6 @@
 namespace RoleplayGame
 {
+    
     public class Mago : IPersonaje
     {
         public string Nombre { get; }
@@ -13,11 +14,33 @@ namespace RoleplayGame
             this.Vida = 80;
             this.VidaLimitada = 80;
         }
-
-        public int GetAtaqueTotal() => Items.Sum(i => i.Ataque);
-        public int GetDefensaTotal() => Items.Sum(i => i.Defensa);
-
-        public void Atacar(IPersonaje enemigo)
+        
+        public int GetAtaqueTotal()
+            // Usamos un acumulador con foreach porque es simple,
+            // esto sigue el principio de responsabilidad unica (SRP):
+            // el personaje es responsable de calcular su propio ataque.
+        {
+            int total = 0;
+            foreach (IItem item in Items)
+            {
+                total += item.Ataque;
+            }
+            return total;
+        }
+        public int GetDefensaTotal()
+            // mismo razonamiento que GetAtaqueTotal.
+            // cada ítem aporta defensa, y sumamos todos.
+        {
+            int total = 0;
+            foreach (IItem item in Items)
+            {
+                total += item.Defensa;
+            }
+            return total;
+        }
+// .
+        public void Atacar(IPersonaje enemigo) // creamos el metodo de atacar el personaje,
+            // Sumamos nuestro ataque total y le restamos la defensa total del otro, si es >0, le restamos el total
         {
             int daño = GetAtaqueTotal() - enemigo.GetDefensaTotal();
             if (daño > 0)
@@ -25,17 +48,27 @@ namespace RoleplayGame
         }
 
         public void RecibirDaño(int daño)
+            //el dato ("daño") nos lo da el metodo enemigo, este metodo(RecibirDaño) lo que hace es restar el total con la vida del personaje atacado
         {
             Vida -= daño;
             if (Vida < 0) Vida = 0;
         }
 
-        public void Curar()
+        public void Curar() 
+            // volvemos la vida a su valor inicial (VidaLimitada)
         {
             Vida = VidaLimitada;
         }
 
-        public void AgregarItem(IItem item) => Items.Add(item);
-        public void QuitarItem(IItem item) => Items.Remove(item);
+        public void AgregarItem(IItem item)
+        {
+            Items.Add(item);
+        }
+
+        public void QuitarItem(IItem item)
+        {
+            Items.Remove(item);
+        }
+
     }
 }

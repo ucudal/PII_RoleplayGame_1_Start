@@ -7,10 +7,30 @@ namespace RoleplayGame
         private List<Hechizo> Hechizos { get; } = new List<Hechizo>();
 
         // El ataque es la suma del poder de todos los hechizos
-        public int Ataque => Hechizos.Sum(h => h.Poder);
+        public int Ataque
+        {
+            get
+            {
+                int total = 0;
+                foreach (Hechizo h in Hechizos)  
+                {
+                    total += h.Poder;
+                }
+                return total;
+            }
+        }
+
 
         // Puede no dar defensa pero lo dejamos extensible
-        public int Defensa => 0;
+        public int Defensa
+        {
+            get
+            {
+                int total = 0;
+                return total;
+            }
+        }
+
 
         public void AgregarHechizo(Hechizo hechizo)
         {

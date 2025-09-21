@@ -2,7 +2,7 @@ namespace RoleplayGame
 {
     public class Hechizo
     {
-        public string Nombre { get; }
+        public string Nombre { get; } 
         public int Poder { get; }
 
         public Hechizo(string nombre, int poder)

@@ -24,7 +24,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\src\Program\Program.csproj" />
-      <ProjectReference Include="..\test\LibraryTests\LibraryTests.csproj" />
     </ItemGroup>
 
 </Project>
