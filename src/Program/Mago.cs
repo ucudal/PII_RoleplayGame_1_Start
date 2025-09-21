@@ -38,7 +38,8 @@ namespace RoleplayGame
             }
             return total;
         }
-// .
+// .asdas
+//sadasd
         public void Atacar(IPersonaje enemigo) // creamos el metodo de atacar el personaje,
             // Sumamos nuestro ataque total y le restamos la defensa total del otro, si es >0, le restamos el total
         {
