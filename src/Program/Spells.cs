@@ -2,6 +2,6 @@
 
 public class Spells
 {
-        public string name { get; set; }
-        public int damage { get; set; }
+        public string Name { get; set; }
+        public int Damage { get; set; }
 }
