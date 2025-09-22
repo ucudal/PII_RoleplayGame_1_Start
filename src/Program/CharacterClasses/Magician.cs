@@ -37,12 +37,19 @@ public class Magician : ICharacter
     }
     public void Attack(ICharacter target, Spell hechizo)
     {
+        bool hechizo_en_libro = false;
+        foreach (Spell item in libro)
+        {
+            if (item == hechizo) {hechizo_en_libro = true;}
+        }
+        if (hechizo_en_libro){
             int aditionalDamage = 0;
             foreach(Items item in this.ListInventory)
             {
                 aditionalDamage += item.MagicDamage;
             }
-        target.get(Health) -= (MagicDamage + hechizo.Damage + aditionalDamage) - target.Armor;
+        target.get(Health) -= (MagicDamage + hechizo.Damage + aditionalDamage) - target.Armor;}
+        else {Console.WriteLine("No tiene ese hechizo");}
     }
     
     public void Heal()
