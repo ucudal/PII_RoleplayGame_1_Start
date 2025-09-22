@@ -18,4 +18,7 @@ public class Items //Creo clase Items
         this.Armor = armor;
         this.Type = type;
     }
+    
+    Items dragonSword = new Items("Dragon Sword", 0, 100, 0, "Arma");
+    Items thanosSword = new Items("Thanos Sword", 0, 100, 0, "Arma");
 }
