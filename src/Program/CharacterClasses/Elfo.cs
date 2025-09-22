@@ -7,6 +7,18 @@ public class Elfo: ICharacter
     public int MagicDamage { get; set; }
     public int MeleeDamage { get; set; }
     public int TotalHealth { get; set; }
+    public int Armor
+    {
+        get
+        {
+            int totalArmor = 0;
+            foreach (Items item in this.listInventory)
+            {
+                totalArmor += item.Armor;
+            }
+            return totalArmor;
+        }
+    }
 
     private Inventory listInventory;
 
@@ -23,12 +35,12 @@ public class Elfo: ICharacter
     
     public void Attack(ICharacter target)
     {
-        int aditionalDamage = 0;
+        int additionalDamage = 0;
         foreach(Items item in this.listInventory)
         {
-            aditionalDamage += item.Damage + item.MagicDamage;
+            additionalDamage += item.Damage + item.MagicDamage;
         }
-        target.Health =- MeleeDamage + aditionalDamage;
+        target.Health -= ((MeleeDamage + additionalDamage) - Armor));
     }
 
     public void Heal()
