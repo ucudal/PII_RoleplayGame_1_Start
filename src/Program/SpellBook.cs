@@ -2,7 +2,7 @@ namespace Program;
 
 public class SpellBook
 {
-    private List<Spells> SpellList;
+    public List<Spells> SpellList;
     public SpellBook()
     {
         SpellList = new List<Spells>();
