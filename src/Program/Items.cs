@@ -6,5 +6,6 @@ public class Items
     public int MagicDamage { get; set; }
     public int Damage { get; set; }
     public int Armor { get; set; }
+    public string type { get; set; }
     
 }
