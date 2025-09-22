@@ -35,10 +35,10 @@ public class Magician : ICharacter
             return totalArmor;
         }
     }
-    public void Attack(ICharacter target, Spell hechizo)
+    public void Attack(ICharacter target, Spells hechizo)
     {
         bool hechizo_en_libro = false;
-        foreach (Spell item in libro)
+        foreach (Spells item in libro)
         {
             if (item == hechizo) {hechizo_en_libro = true;}
         }
