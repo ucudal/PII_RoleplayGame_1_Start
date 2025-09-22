@@ -1,4 +1,5 @@
 using System.IO.Pipes;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace Program.CharacterClasses;
@@ -10,7 +11,21 @@ public class Dwarf : ICharacter
     public int MeleeDamage { get; set; }
     public int TotalHealth {get; set;}
 
-    private Inventory ListInventory;
+    public int Armor
+    {
+        get
+        {
+            int totalArmor = 0;
+            foreach (Items item in this.ListInventory)
+            {
+                totalArmor += item.Armor;
+            }
+
+            return totalArmor;
+        }
+    }
+
+    public Inventory ListInventory {get; set;}
     
     public Dwarf(string name, int health, int meleeDamage, Inventory listInventory)
     {
@@ -20,17 +35,19 @@ public class Dwarf : ICharacter
         this.TotalHealth = health;
         this.ListInventory = listInventory;
         
+       
     }
 
     public void Attack(ICharacter target)
     {
-        int aditionalDamage = 0;
+        int additionalDamage = 0;
         foreach(Items item in this.ListInventory)
         {
-            aditionalDamage += item.Damage;
+            additionalDamage += item.Damage;
         }
-        target.Health =- MeleeDamage + aditionalDamage;
+        target.Health -= ((MeleeDamage + additionalDamage) - target.Armor);
     }
+    
 
     public void Heal()
     {
