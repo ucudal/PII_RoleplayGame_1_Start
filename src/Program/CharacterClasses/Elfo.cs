@@ -63,7 +63,7 @@ public class Elfo: ICharacter
         this.Inventory.DropObject(item);
     }
     
-    //Cosas para mejorar:
+    // Cosas para mejorar:
     // Poder Seleccionar un objeto y atacar con el mismo
     // Diferenciar los daños magicos de los daños físicos
 }
