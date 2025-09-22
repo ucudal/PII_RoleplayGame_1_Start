@@ -12,10 +12,10 @@ public class Items //Creo clase Items
     //Constructor:
     public Items(string name, int magicDamage, int damage, int armor, string type)
     {
-        Name = name;
-        MagicDamage = magicDamage;
-        Damage = damage;
-        Armor = armor;
-        Type = type;
+        this.Name = name;
+        this.MagicDamage = magicDamage;
+        this.Damage = damage;
+        this.Armor = armor;
+        this.Type = type;
     }
 }
