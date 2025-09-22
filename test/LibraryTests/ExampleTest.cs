@@ -1,6 +1,7 @@
 namespace LibraryTests;
 using Program;
 using System;
+using Program.CharacterClasses;
 
 public class Tests
 {
@@ -26,5 +27,19 @@ public class Tests
         Armas.PickObject(Espada);
         Armas.DropObject(Espada);
         Assert.IsTrue(Armas.Count == 0);
+    }
+
+    [Test]
+    public void TestAttack()
+    {
+        Inventory InventarioCarlos = new Inventory();
+        Dwarf Carlos = new Dwarf("Carlos", 100, 10, InventarioCarlos);
+        
+        Inventory InventarioPepe = new Inventory();
+        Dwarf Pepe = new Dwarf("Carlos", 100, 10, InventarioPepe);
+        Carlos.Attack(Pepe);
+        Assert.IsTrue(Pepe.Health == 90);
+        
+        
     }
 }
