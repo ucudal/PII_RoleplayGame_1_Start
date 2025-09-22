@@ -39,7 +39,7 @@ public class Magician : ICharacter
     public void Attack(ICharacter target, Spells hechizo)
     {
         bool hechizo_en_libro = false;
-        foreach (Spells item in this.libro)
+        foreach (Spells item in this.libro.SpellList)
         {
             if (item == hechizo) {hechizo_en_libro = true;}
         }
