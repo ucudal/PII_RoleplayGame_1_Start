@@ -5,22 +5,23 @@ namespace Program.CharacterClasses;
 
 public class Magician : ICharacter 
 {
-    private Inventory ListInventory;
-    public string name{ get; set; }
+    private Inventory Inventory;
+    
+    public string Name{ get; set; }
     public int Health { get; set; }
     public int MagicDamage { get; set; }
     public int TotalHealth{ get; set; }
     
-    Book libro { get; set; }
+    SpellBook libro { get; set; }
 
     public Magician(string name, int health, int magicDamage, Inventory listInventory)
     {
-        this.name = name;
+        this.Name = name;
         this.Health = health;
         this.MagicDamage = magicDamage;
-        this.libro = new Book();
+        this.libro = new SpellBook();
         this.TotalHealth = Health;
-        this.ListInventory =  listInventory;
+        this.Inventory =  listInventory;
     }
     public int Armor
     {
@@ -44,11 +45,11 @@ public class Magician : ICharacter
         }
         if (hechizo_en_libro){
             int aditionalDamage = 0;
-            foreach(Items item in this.ListInventory)
+            foreach(Items item in this.Inventory.ListInventory)
             {
                 aditionalDamage += item.MagicDamage;
             }
-        target.get(Health) -= (MagicDamage + hechizo.Damage + aditionalDamage) - target.Armor;}
+            target.Health -= (MagicDamage + hechizo.Damage + aditionalDamage) - target.Armor;}
         else {Console.WriteLine("No tiene ese hechizo");}
     }
     
@@ -59,16 +60,16 @@ public class Magician : ICharacter
     
     public void CheckInventory()
     {
-        this.ListInventory.CheckInventory();
+        this.Inventory.CheckInventory();
     }
 
-    public void PickObject()
+    public void PickObject(Items item)
     {
-        this.ListInventory.PickObject();
+        this.Inventory.PickObject(item);
     }
 
-    public void DropObject()
+    public void DropObject(Items item)
     {
-        this.ListInventory.DropObject();
+        this.Inventory.DropObject(item);
     }
 }
