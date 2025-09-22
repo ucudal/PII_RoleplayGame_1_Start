@@ -3,67 +3,67 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 namespace Program.CharacterClasses;
 
-public class Dwarf : ICharacter
+public class Dwarf : ICharacter         //Creo la clase Dwarf del tipo Icharacter
 {
-    public string Name { get; set; }
-    public int Health { get; set; }
-    public int MeleeDamage { get; set; }
-    public int TotalHealth {get; set;}
-    public Inventory Inventory {get; set;}
-    public int Armor
+    public string Name { get; set; }    //Atributo Name tipo string
+    public int Health { get; set; }    //Atributo Health tipo int
+    public int MeleeDamage { get; set; } //Atributo MeleeDamage tipo int
+    public int TotalHealth {get; set;} //Atributo TotalHealth tipo int
+    public Inventory Inventory {get; set;} //Atributo Inventory tipo Inventory
+    public int Armor   //Atributo Armor tipo int
     {
-        get
+        get            //get personalizado de Armor
         {
-            int totalArmor = 0;
-            foreach (Items item in this.Inventory.ListInventory)
+            int totalArmor = 0;     //Inicializo totalArmor en 0
+            foreach (Items item in this.Inventory.ListInventory) //Itero en cada item de la Lista ListInventory
             {
-                totalArmor += item.Armor;
+                totalArmor += item.Armor; //Sumo la armadura que da cada item a la armadura total
             }
 
-            return totalArmor;
+            return totalArmor;  //Retorno totalArmor ya calculado
         }
     }
     
-    public Dwarf(string name, int health, int meleeDamage, Inventory listInventory)
+    public Dwarf(string name, int health, int meleeDamage, Inventory listInventory)  //Constructor Dwarf
     {
         this.Name = name;
-        this.Health = health;
+        this.Health = health;   //Vida actual
         this.MeleeDamage = meleeDamage;
-        this.TotalHealth = health;
+        this.TotalHealth = health;  //Vida total
         this.Inventory = listInventory;
         
        
     }
 
-    public void Attack(ICharacter target)
+    public void Attack(ICharacter target) //Método Attack que toma el objetivo (target) al que está atacando
     {
-        int additionalDamage = 0;
-        foreach(Items item in this.Inventory.ListInventory)
+        int additionalDamage = 0;       //Inicializo additionalDamage en 0 
+        foreach(Items item in this.Inventory.ListInventory)     //Itero en cada item de la lista ListInventory
         {
-            additionalDamage += item.Damage;
+            additionalDamage += item.Damage;    //Sumo el daño que inflige cada item a additionalDamage
         }
-        target.Health -= ((MeleeDamage + additionalDamage) - target.Armor);
+        target.Health -= ((MeleeDamage + additionalDamage) - target.Armor); //Calculo cuanta vida le resta al target
     }
     
 
-    public void Heal()
+    public void Heal()  //Método Curar
     {
-        this.Health = TotalHealth;
+        this.Health = TotalHealth; //A Health le paso el valor TotalHealth que es el que guardamos cuando se creó el dwarf
     }
 
-    public void CheckInventory()
+    public void CheckInventory() //Método que muestra el inventario
     {       
-        this.Inventory.CheckInventory();
+        this.Inventory.CheckInventory(); //Llama al método CheckInventory que está ubicado en Inventory
     }
 
-    public void PickObject(Items item)
+    public void PickObject(Items item)  //Método agarrar objeto (item) que recibe un item del tipo Items
     {
-        this.Inventory.PickObject(item);
+        this.Inventory.PickObject(item);    //Llama al método PickObject(item) que esta ubicado en Inventory
     }
 
-    public void DropObject(Items item)
+    public void DropObject(Items item)  //Método tirar objeto (item) que recibe un item del tipo Items
     {
-        this.Inventory.DropObject(item);
+        this.Inventory.DropObject(item);    //Llama al método DropObject(item) que esta ubicado en Inventory
     }
 
    
