@@ -12,7 +12,7 @@ public class Elfo: ICharacter
         get
         {
             int totalArmor = 0;
-            foreach (Items item in this.listInventory)
+            foreach (Items item in this.Inventory.ListInventory)
             {
                 totalArmor += item.Armor;
             }
@@ -20,7 +20,7 @@ public class Elfo: ICharacter
         }
     }
 
-    private Inventory listInventory;
+    public Inventory Inventory {get; set;}
 
     
     public Elfo(string name, int health, int magicDamage, int meleeDamage, Inventory listInventory)
@@ -30,17 +30,17 @@ public class Elfo: ICharacter
         this.MagicDamage = magicDamage;
         this.MeleeDamage = meleeDamage;
         this.TotalHealth = health;
-        this.listInventory = listInventory;
+        this.Inventory = listInventory;
     }
     
     public void Attack(ICharacter target)
     {
         int additionalDamage = 0;
-        foreach(Items item in this.listInventory)
+        foreach(Items item in this.Inventory.ListInventory)
         {
             additionalDamage += item.Damage + item.MagicDamage;
         }
-        target.Health -= ((MeleeDamage + additionalDamage) - Armor));
+        target.Health -= ((MeleeDamage + additionalDamage) - target.Armor);
     }
 
     public void Heal()
@@ -50,16 +50,16 @@ public class Elfo: ICharacter
 
     public void CheckInventory()
     {
-        this.listInventory.CheckInventory();
+        this.Inventory.CheckInventory();
     }
 
-    public void PickObject()
+    public void PickObject(Items item)
     {
-        this.listInventory.PickObject();
+        this.Inventory.PickObject(item);
     }
 
-    public void DropObject()
+    public void DropObject(Items item)
     {
-        this.listInventory.DropObject();
+        this.Inventory.DropObject(item);
     }
 }
