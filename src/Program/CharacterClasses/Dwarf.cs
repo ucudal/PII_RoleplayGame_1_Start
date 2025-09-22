@@ -1,7 +1,6 @@
 using System.IO.Pipes;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-
 namespace Program.CharacterClasses;
 
 public class Dwarf : ICharacter
@@ -10,13 +9,13 @@ public class Dwarf : ICharacter
     public int Health { get; set; }
     public int MeleeDamage { get; set; }
     public int TotalHealth {get; set;}
-
+    public Inventory Inventory {get; set;}
     public int Armor
     {
         get
         {
             int totalArmor = 0;
-            foreach (Items item in this.ListInventory)
+            foreach (Items item in this.Inventory.ListInventory)
             {
                 totalArmor += item.Armor;
             }
@@ -24,8 +23,6 @@ public class Dwarf : ICharacter
             return totalArmor;
         }
     }
-
-    public Inventory ListInventory {get; set;}
     
     public Dwarf(string name, int health, int meleeDamage, Inventory listInventory)
     {
@@ -33,7 +30,7 @@ public class Dwarf : ICharacter
         this.Health = health;
         this.MeleeDamage = meleeDamage;
         this.TotalHealth = health;
-        this.ListInventory = listInventory;
+        this.Inventory = listInventory;
         
        
     }
@@ -41,7 +38,7 @@ public class Dwarf : ICharacter
     public void Attack(ICharacter target)
     {
         int additionalDamage = 0;
-        foreach(Items item in this.ListInventory)
+        foreach(Items item in this.Inventory.ListInventory)
         {
             additionalDamage += item.Damage;
         }
@@ -55,18 +52,18 @@ public class Dwarf : ICharacter
     }
 
     public void CheckInventory()
-    {
-        this.ListInventory.CheckInventory();
+    {       
+        this.Inventory.CheckInventory();
     }
 
-    public void PickObject()
+    public void PickObject(Items item)
     {
-        this.ListInventory.PickObject();
+        this.Inventory.PickObject(item);
     }
 
-    public void DropObject()
+    public void DropObject(Items item)
     {
-        this.ListInventory.DropObject();
+        this.Inventory.DropObject(item);
     }
 
    
