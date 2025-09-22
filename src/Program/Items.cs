@@ -1,6 +1,6 @@
 namespace Program;
 
-public class Item
+public class Items
 {
     public string Name { get; set; }
     public int MagicDamage { get; set; }
