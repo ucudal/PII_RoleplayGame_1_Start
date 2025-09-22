@@ -21,10 +21,15 @@ public class Dwarf : ICharacter
         this.ListInventory = listInventory;
         
     }
-    
+
     public void Attack(ICharacter target)
     {
-        target.Health =- MeleeDamage;
+        int AditionalDamage = 0;
+        foreach(Items item in this.ListInventory)
+        {
+            aditionalDamage += item.Damage;
+        }
+        target.Health =- MeleeDamage + aditionalDamage;
     }
 
     public void Heal()
