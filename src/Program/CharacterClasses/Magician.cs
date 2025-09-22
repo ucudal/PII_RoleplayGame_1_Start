@@ -11,6 +11,8 @@ public class Magician : ICharacter
     public int MagicDamage { get; set; }
     public int TotalHealth{ get; set; }
     
+    public int Armor{ get; set; }
+    
     Book libro { get; set; }
 
     public Magician(string name, int health, int magicDamage, Inventory listInventory)
@@ -18,9 +20,10 @@ public class Magician : ICharacter
         this.name = name;
         this.Health = health;
         this.MagicDamage = magicDamage;
-        Book libro = new Book();
+        this.libro = new Book();
         this.TotalHealth = Health;
         this.ListInventory =  listInventory;
+        this.Armor = 0;
     }
     
     public void Attack(ICharacter target, Spell hechizo)
