@@ -30,7 +30,7 @@ public class Magician : ICharacter
             {
                 aditionalDamage += item.MagicDamage;
             }
-        target.get(Health) = target.get(Health) - (MagicDamage + Spell.Damage + aditionalDamage);
+        target.get(Health) = target.get(Health) - (MagicDamage + hechizo.Damage + aditionalDamage);
     }
     
     public void Heal()
