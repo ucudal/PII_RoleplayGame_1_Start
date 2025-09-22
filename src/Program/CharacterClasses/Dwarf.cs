@@ -24,7 +24,7 @@ public class Dwarf : ICharacter
 
     public void Attack(ICharacter target)
     {
-        int AditionalDamage = 0;
+        int aditionalDamage = 0;
         foreach(Items item in this.ListInventory)
         {
             aditionalDamage += item.Damage;
