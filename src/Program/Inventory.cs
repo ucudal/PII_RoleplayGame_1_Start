@@ -4,7 +4,7 @@ public class Inventory
 {
     public List<Items> ListInventory;
 
-    public Inventory(Items item)
+    public Inventory()
     {
         this.ListInventory = new List<Items>();
     }
@@ -13,7 +13,7 @@ public class Inventory
     {
         foreach (Items item in ListInventory)
         { 
-            Console.WriteLine(item);
+            Console.WriteLine(item.Name);
         }
     } 
     public void DropObject(Items item)
