@@ -25,7 +25,12 @@ public class Magician
     
     public void Attack(ICharacter target, Spell hechizo)
     {
-        target.get(Health) = target.get(Health) - (MagicDamage + Spell.Damage));
+            int aditionalDamage = 0;
+            foreach(Items item in this.ListInventory)
+            {
+                aditionalDamage += item.MagicDamage;
+            }
+        target.get(Health) = target.get(Health) - (MagicDamage + Spell.Damage + aditionalDamage);
     }
     
     public void Heal()
