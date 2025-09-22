@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Items\" />
-  </ItemGroup>
-
 </Project>
