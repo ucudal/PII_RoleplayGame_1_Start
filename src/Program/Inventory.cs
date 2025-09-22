@@ -3,6 +3,8 @@
 public class Inventory
 {
     public List<Items> ListInventory;       //Inventario es una lista de objetos del tipo Items
+    
+    public int Count => ListInventory.Count;
 
     public Inventory()
     {
