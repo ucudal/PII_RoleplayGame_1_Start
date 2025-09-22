@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Program.CharacterClasses;
 
-public class Magician
+public class Magician : ICharacter 
 {
     private Inventory ListInventory;
     public string name{ get; set; }
