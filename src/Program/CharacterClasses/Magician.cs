@@ -12,6 +12,8 @@ public class Magician : ICharacter
     public int MagicDamage { get; set; }
     public int TotalHealth{ get; set; }
     
+    public Spells Hechizo_actual{ get; set; }
+    
     SpellBook libro { get; set; }
 
     public Magician(string name, int health, int magicDamage, Inventory listInventory)
@@ -36,12 +38,12 @@ public class Magician : ICharacter
             return totalArmor;
         }
     }
-    public void Attack(ICharacter target, Spells hechizo)
+    public void Attack(ICharacter target)
     {
         bool hechizo_en_libro = false;
         foreach (Spells item in this.libro.SpellList)
         {
-            if (item == hechizo) {hechizo_en_libro = true;}
+            if (item == Hechizo_actual) {hechizo_en_libro = true;}
         }
         if (hechizo_en_libro){
             int aditionalDamage = 0;
@@ -49,7 +51,7 @@ public class Magician : ICharacter
             {
                 aditionalDamage += item.MagicDamage;
             }
-            target.Health -= (MagicDamage + hechizo.Damage + aditionalDamage) - target.Armor;}
+            target.Health -= (MagicDamage + Hechizo_actual.Damage + aditionalDamage) - target.Armor;}
         else {Console.WriteLine("No tiene ese hechizo");}
     }
     
