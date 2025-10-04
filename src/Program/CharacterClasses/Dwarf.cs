@@ -5,6 +5,8 @@ namespace Program.CharacterClasses;
 
 public class Dwarf : ICharacter         //Creo la clase Dwarf del tipo Icharacter
 {
+    
+    public List<Inventory> ListInventory { get; set; }
     public string Name { get; set; }    //Atributo Name tipo string
     public int Health { get; set; }    //Atributo Health tipo int
     public int MeleeDamage { get; set; } //Atributo MeleeDamage tipo int
@@ -15,7 +17,7 @@ public class Dwarf : ICharacter         //Creo la clase Dwarf del tipo Icharacte
         get            //get personalizado de Armor
         {
             int totalArmor = 0;     //Inicializo totalArmor en 0
-            foreach (Items item in this.Inventory.ListInventory) //Itero en cada item de la Lista ListInventory
+            foreach (IItems item in this.Inventory.ListInventory) //Itero en cada item de la Lista ListInventory
             {
                 totalArmor += item.Armor; //Sumo la armadura que da cada item a la armadura total
             }
@@ -38,7 +40,7 @@ public class Dwarf : ICharacter         //Creo la clase Dwarf del tipo Icharacte
     public void Attack(ICharacter target) //Método Attack que toma el objetivo (target) al que está atacando
     {
         int additionalDamage = 0;       //Inicializo additionalDamage en 0 
-        foreach(Items item in this.Inventory.ListInventory)     //Itero en cada item de la lista ListInventory
+        foreach(IItems item in this.Inventory.ListInventory)     //Itero en cada item de la lista ListInventory
         {
             additionalDamage += item.Damage;    //Sumo el daño que inflige cada item a additionalDamage
         }
@@ -56,16 +58,16 @@ public class Dwarf : ICharacter         //Creo la clase Dwarf del tipo Icharacte
         this.Inventory.CheckInventory(); //Llama al método CheckInventory que está ubicado en Inventory
     }
 
-    public void PickObject(Items item)  //Método agarrar objeto (item) que recibe un item del tipo Items
+    public void PickObject(IItems item)  //Método agarrar objeto (item) que recibe un item del tipo Items
     {
         this.Inventory.PickObject(item);    //Llama al método PickObject(item) que esta ubicado en Inventory
     }
 
-    public void DropObject(Items item)  //Método tirar objeto (item) que recibe un item del tipo Items
+    public void DropObject(IItems item)  //Método tirar objeto (item) que recibe un item del tipo Items
     {
         this.Inventory.DropObject(item);    //Llama al método DropObject(item) que esta ubicado en Inventory
     }
 
-   
+    
 }
  

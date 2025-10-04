@@ -2,6 +2,7 @@
 
 public class Elfo: ICharacter
 {
+    public List<Inventory> ListInventory { get; set; }
     public string Name { get; set; }
     public int Health { get; set; }
     public int MagicDamage { get; set; }
@@ -12,7 +13,7 @@ public class Elfo: ICharacter
         get
         {
             int totalArmor = 0;
-            foreach (Items item in this.Inventory.ListInventory)   //Recorremos el inventario para sumar armadura
+            foreach (IItems item in this.Inventory.ListInventory)   //Recorremos el inventario para sumar armadura
             {
                 totalArmor += item.Armor;
             }
@@ -36,7 +37,7 @@ public class Elfo: ICharacter
     public void Attack(ICharacter target)           //Método que sirve para atacar
     {
         int additionalDamage = 0;
-        foreach(Items item in this.Inventory.ListInventory)
+        foreach(IItems item in this.Inventory.ListInventory)
         {
             additionalDamage += item.Damage + item.MagicDamage;     
         }
@@ -53,12 +54,12 @@ public class Elfo: ICharacter
         this.Inventory.CheckInventory();
     }
 
-    public void PickObject(Items item)      //Método para agarrar un objeto/Añadir al inventario
+    public void PickObject(IItems item)      //Método para agarrar un objeto/Añadir al inventario
     {
         this.Inventory.PickObject(item);
     }
 
-    public void DropObject(Items item)      //Método para tirar el objeto seleccionado del inventario
+    public void DropObject(IItems item)      //Método para tirar el objeto seleccionado del inventario
     {
         this.Inventory.DropObject(item);
     }

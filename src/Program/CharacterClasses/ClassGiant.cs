@@ -5,6 +5,8 @@ namespace Program.CharacterClasses;
 
 public class Giant : ICharacter
 {
+    
+    public List<Inventory> ListInventory { get; set; }
     public string Name { get; set; }
     public int Health { get; set; }
     public int MeleeDamage { get; set; }
@@ -15,7 +17,7 @@ public class Giant : ICharacter
         get
         {
             int totalArmor = 0;
-            foreach (Items item in this.Inventory.ListInventory)
+            foreach (IItems item in this.Inventory.ListInventory)
             {
                 totalArmor += item.Armor;
             }
@@ -38,7 +40,7 @@ public class Giant : ICharacter
     public void Attack(ICharacter target)
     {
         int additionalDamage = 0;
-        foreach(Items item in this.Inventory.ListInventory)
+        foreach(IItems item in this.Inventory.ListInventory)
         {
             additionalDamage += item.Damage;
         }
@@ -56,12 +58,12 @@ public class Giant : ICharacter
         this.Inventory.CheckInventory();
     }
 
-    public void PickObject(Items item)
+    public void PickObject(IItems item)
     {
         this.Inventory.PickObject(item);
     }
 
-    public void DropObject(Items item)
+    public void DropObject(IItems item)
     {
         this.Inventory.DropObject(item);
     }

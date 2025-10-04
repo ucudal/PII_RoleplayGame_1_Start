@@ -5,8 +5,8 @@ namespace Program.CharacterClasses;
 
 public class Magician : ICharacter 
 {
-    private Inventory Inventory;
-    
+    public Inventory Inventory { get; set; }
+    public List<Inventory> ListInventory { get; set; }
     public string Name{ get; set; }
     public int Health { get; set; }
     public int MagicDamage { get; set; }
@@ -28,7 +28,7 @@ public class Magician : ICharacter
         get
         {
             int totalArmor = 0;
-            foreach (Items item in this.Inventory.ListInventory)
+            foreach (IItems item in this.Inventory.ListInventory)
             {
                 totalArmor += item.Armor;
             }
@@ -45,7 +45,7 @@ public class Magician : ICharacter
         }
         if (hechizo_en_libro){
             int aditionalDamage = 0;
-            foreach(Items item in this.Inventory.ListInventory)
+            foreach(IItems item in this.Inventory.ListInventory)
             {
                 aditionalDamage += item.MagicDamage;
             }
@@ -63,12 +63,12 @@ public class Magician : ICharacter
         this.Inventory.CheckInventory();
     }
 
-    public void PickObject(Items item)
+    public void PickObject(IItems item)
     {
         this.Inventory.PickObject(item);
     }
 
-    public void DropObject(Items item)
+    public void DropObject(IItems item)
     {
         this.Inventory.DropObject(item);
     }
