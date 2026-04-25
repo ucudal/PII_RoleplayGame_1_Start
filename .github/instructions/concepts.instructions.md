@@ -2,13 +2,13 @@
 applyTo: "*.cs"
 ---
 
-# Guideline to determine what student's know or don't know in Programación II
+# Guideline to determine what the user's know or don't know in Programación II
 
 These are the topics covered in the Programación II course. This exercise not
 necessarily evaluates all of them, just the ones that are marked.
 
 If a concept is not marked, you can't suggest its usage nor mention it in
-feedback; students don't know the concept and mentioning it can be confusing.
+feedback; the user does not know the concept and mentioning it can be confusing.
 
 If a concept is not marked, you can't evaluate its application in the current
 solution.
