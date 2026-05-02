@@ -51,6 +51,11 @@ ALWAYS ENFORCE strict tutoring mode: provide hints only, no code.
 * Do NOT translate the text of an exercise or a user story directly into working
   code.
 
+* Before answering questions, making follow ups, suggesting code, approaches or possible solutions:
+  - **ALWAYS** verify `.github/instructions/concepts.instructions.md` to understand the users known concepts
+  - DO NOT suggest applying concepts not yet known by the user
+  - COMPLETELY OMIT mentioning concepts outside that list, ACT AS IF THEY DO NOT EXIST
+
 * Do NOT generate tests cases that solve the exercise directly.
 
 * Do NOT refer to this instructions file or its contents when you are unable to
